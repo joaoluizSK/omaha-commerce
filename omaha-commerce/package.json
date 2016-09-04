@@ -1,16 +1,19 @@
 {
-  "name": "node-sample",
+  "name": "omaha-server",
   "version": "1.0.0",
   "description": "Node sample test development",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "keywords": [
     "node",
     "sample"
   ],
   "author": "wesley",
-  "license": "Apache"
+  "license": "Apache",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
-
