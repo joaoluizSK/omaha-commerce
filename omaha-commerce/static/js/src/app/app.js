@@ -7,6 +7,13 @@ app.config(function($routeProvider, $locationProvider) {
 		contoller : 'LoginController'
 	});
 
+	$routeProvider.when('/usuario', {
+		templateUrl : 'usuario.html',
+		contoller : 'UsuarioController',
+		controlerAs : 'uc'
+
+	});
+
 	$routeProvider.when('/loja', {
 		templateUrl : 'loja.html',
 		contoller : 'LojaController'

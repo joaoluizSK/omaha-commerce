@@ -1,0 +1,26 @@
+<html>
+
+  <head>
+    <meta charset="utf-8">
+
+    <link href="../css/src/login.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container" ng-controller="UsuarioController as uc">
+
+      <form class="form-signin">
+
+        <h3 class="form-signin-heading">Informe seu dados do usuario</h3>
+        <label for="inputEmail" class="sr-only">Endereço de e-Mail</label>
+        <input ng-model="uc.usuario.email" type="input" id="inputEmail" class="form-control" placeholder="Endereço de e-Mail" required autofocus>
+        <label for="inputPassword" class="sr-only">Senha</label>
+        <input ng-model="uc.usuario.senha" type="input" id="inputPassword" class="form-control" placeholder="Senha" required>
+
+        <button class="btn btn-lg btn-success btn-block" ng-click="uc.salvar()">Salvar</button>
+
+      </form>
+
+    </div>
+  </body>
+</html>
