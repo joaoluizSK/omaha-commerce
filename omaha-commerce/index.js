@@ -5,6 +5,9 @@ var port = args[2] || 7070;
 var express = require('express');
 var app = express();
 var consign = require('consign');
+var bodyParser = require('body-parser')
+
+app.use(bodyParser.json())
 
 app.use(express.static(__dirname + "/static"));
 
