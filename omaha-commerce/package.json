@@ -1,20 +1,25 @@
 {
-  "name": "omaha-server",
-  "version": "1.0.0",
-  "description": "Node sample test development",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
-  },
-  "keywords": [
-    "node",
-    "sample"
-  ],
-  "author": "wesley",
-  "license": "Apache",
-  "dependencies": {
-    "express": "^4.14.0",
-    "nodemon": "^1.10.2"
-  }
+    "name": "omaha-server",
+    "version": "1.0.0",
+    "description": "Node sample test development",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon index.js"
+    },
+    "keywords": [
+        "node",
+        "sample"
+    ],
+    "author": "wesley",
+    "license": "Apache",
+    "dependencies": {
+        "express": "^4.14.0",
+        "express-myconnection": "^1.0.4",
+        "mysql": "^2.11.1",
+        "nodemon": "^1.10.2",
+        "sequelize": "^3.19.2",
+        "body-parser": "^1.15.0",
+        "consign": "^0.1.2"
+    }
 }

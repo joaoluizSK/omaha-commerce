@@ -1,4 +1,4 @@
-process.title = 'MyWebServer';
+process.title = 'omaha-server';
 
 var args = process.argv;
 var port = args[2] || 7070;
@@ -12,10 +12,12 @@ app.use(bodyParser.json())
 app.use(express.static(__dirname + "/static"));
 
 consign()
-.include("routes")
-.into(app);
-
+    .include("db.js")
+    .then("lib/boot.js")
+    .then("model")
+    .then("routes")
+    .into(app);
 
 app.listen(port, function() {
-  console.log('Startup on ' + port);
+    console.log('Startup on ' + port);
 });

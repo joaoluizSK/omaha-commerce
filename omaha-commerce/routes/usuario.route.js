@@ -1,43 +1,45 @@
 module.exports = app => {
 
-  app.post("/usuario/salvar", (req, res) => {
+    app.post("/usuario/salvar", (req, res) => {
 
-    console.log(req.body);
+        console.log(req.body);
 
-    res.json(req.body);
+        Usuario.create(req.body).then(function(user) {
+            console.log("Usuário Salvo com sucesso!");
+        });
 
-  });
+    });
 
-  app.put("/usuario/atualizar", (req, res) => {
+    app.put("/usuario/atualizar", (req, res) => {
 
-    console.log(req.body);
+        console.log(req.body);
 
-    res.json(req.body);
+        res.json(req.body);
 
-  });
+    });
 
-  app.delete("/usuario/remover", (req, res) => {
+    app.delete("/usuario/remover", (req, res) => {
 
-    console.log(req.body);
+        console.log(req.body);
 
-    res.json(req.body);
+        res.json(req.body);
 
-  });
+    });
 
-  app.get("/usuario/consultarTodos", (req, res) => {
+    app.get("/usuario/consultarTodos", (req, res) => {
 
-    console.log(req.body);
+        console.log(req.body);
 
-    res.json(req.body);
+        res.json(req.body);
 
-  });
+    });
 
-  app.get("/usuario/consultarPorId", (req, res) => {
+    app.get("/usuario/consultarPorId", (req, res) => {
 
-    console.log(req.body);
+        console.log(req.body);
 
-    res.json(req.body);
+        res.json(req.body);
 
-  });
+    });
 
 };
