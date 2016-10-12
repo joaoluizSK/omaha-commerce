@@ -1,0 +1,125 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link href="../css/src/login.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container-fluid" ng-controller="CategoriaController as cc" ng-init="cc.init()">
+
+        <div class="page-header">
+            <h3> Cadastro de Categorias de Produtos </h3>
+        </div>
+
+        <form class="form-horizontal">
+
+            <div class="row">
+
+                <div class="col-md-1">
+                    <label for="campoId" class="control-label">Identificador</label>
+                </div>
+
+                <div class="col-md-1">
+                    <input id="campoId" type="text" class="form-control" placeholder="#" ng-model="cc.categoria.id" readonly/>
+                </div>
+
+                <div class="col-md-1">
+                    <label for="campoNome" class="control-label">Descrição</label>
+                </div>
+
+                <div class="col-md-8">
+                    <input id="campoNome" type="text" class="form-control" ng-minLength="5" placeholder="Descrição do Produto" ng-model="pc.produto.nome" />
+                </div>
+
+            </div>
+
+            </p>
+
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-10">
+                    <button type="text" ng-click="uc.novo()" class="btn btn-primary">
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo
+                    </button>
+                    <button type="text" ng-click="uc.salvar()" class="btn btn-success">
+                      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Salvar
+                    </button>
+                    <button type="button" class="btn btn-danger" aria-label="Left Align" ng-click="deletar(uc.usuario)">
+                      <span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span> Remover
+                    </button>
+                    <button data-toggle="modal" data-target="#myModal" type="button" class="btn btn-default" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Listar Todos
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Listagem de Categorias</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <div id="busca" class="form-group">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">Pesquisar</div>
+                                            <input type="text" class="form-control" id="campoPesquisar" ng-model="fitlroCategorias " placeholder="Digite aqui seu parâmetro de pesquisa" />
+                                        </div>
+                                    </div>
+                                </div>
+                        </p>
+
+                        <table class="table table-striped">
+
+                            <thead>
+                                <tr>
+                                    <th>Identificador</th>
+                                    <th>Descrição</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <!-- Listagem dos registros será aqui -->
+
+                                <tr ng-repeat="categoriaAtual in cc.categorias | filter: fitlroCategorias">
+
+                                    <td> {{categoriaAtual.id}} </td>
+                                    <td> {{categoriaAtual.descricao}} </td>
+                                    <td> {{categoriaAtual.valor}} </td>
+
+                                    <td>
+                                        <button type="button" class="btn btn-default" aria-label="Left Align" ng-click="cc.editar(categoriaAtual)" ng-model="editar" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+                                          <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                      </button>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                        </div>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</body>
+
+</html>

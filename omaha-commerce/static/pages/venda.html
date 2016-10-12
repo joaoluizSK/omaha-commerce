@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link href="../css/src/login.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container-fluid" ng-controller="VendaController as vc" ng-init="vc.init()">
+
+        <div class="page-header">
+            <h3> Consulta de Vendas </h3>
+        </div>
+
+        <div id="busca" class="form-group">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="input-group">
+                        <div class="input-group-addon">Pesquisar</div>
+                        <input type="text" class="form-control" id="campoPesquisar" ng-model="filtroProdutos " placeholder="Digite aqui seu parâmetro de pesquisa" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <div class="input-group-addon">Situação</div>
+
+                        <select class="form-control" id="campoUf" ng-model="filtroSituacao">
+                      <option>Abertos</option>
+                      <option>Cancelados</option>
+                      <option>Fechados</option>
+                      <option>Todos</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+            </p>
+
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Identificador</th>
+                        <th>Cliente</th>
+                        <th>Destino</th>
+                        <th>Situação</th>
+                        <th>Forma de Pagamento</th>
+                        <th>Total Pedido</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- Listagem dos registros será aqui -->
+
+                    <tr ng-repeat="vendaAtual in vc.vendas | filter: filtroProdutos">
+
+                        <td> {{vendaAtual.id}} </td>
+                        <td> {{vendaAtual.descricao}} </td>
+                        <td> {{vendaAtual.valor}} </td>
+                        <td> {{vendaAtual.totalPedido}} </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        </p>
+
+        <div id="busca" class="form-group">
+
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Unitário</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- Listagem dos registros será aqui -->
+
+                    <tr ng-repeat="itemAtual in vc.itensVenda">
+
+                        <td> {{itemAtual.produto}} </td>
+                        <td> {{itemAtual.quantidade}} </td>
+                        <td> {{itemAtual.unitario}} </td>
+                        <td> {{itemAtual.total}} </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+</body>
+
+</html>
