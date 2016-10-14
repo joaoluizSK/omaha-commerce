@@ -3,8 +3,6 @@
 <head>
     <meta charset="utf-8">
 
-    <link href="../css/src/login.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -37,18 +35,10 @@
                     <label for="campoNome" class="control-label">Produto</label>
                 </div>
 
-                <div class="col-md-8">
+                <div class="col-md-11">
                     <input id="campoNome" type="text" class="form-control" ng-minLength="5" placeholder="Nome do Produto" ng-model="pc.produto.nome" />
                 </div>
 
-                <div class="col-md-1">
-                    <label for="campoDataNascimento" class="control-label">Nascimento</label>
-                </div>
-
-                <div class="col-md-2">
-                    <input id="campoDataNascimento" type="date" class="form-control" ng-minLength="5" placeholder="Data de nascimento do Usuário" ng-model="uc.usuario.dataNascimento" />
-                </div>
-
             </div>
 
             </p>
@@ -56,130 +46,63 @@
             <div class="row">
 
                 <div class="col-md-1">
-                    <label for="campoCpf" class="control-label">CPF</label>
-                </div>
-
-                <div class="col-md-2">
-                    <input id="campoCpf" type="text" class="form-control" ng-minLength="5" placeholder="CPF do Usuário" ng-model="uc.usuario.cpf" />
-                </div>
-
-                <div class="col-md-1">
-                    <label for="campoEmail" class="control-label">E-mail</label>
-                </div>
-
-                <div class="col-md-4">
-                    <input id="campoEmail" type="email" class="form-control" ng-minLength="5" placeholder="E-mail do Usuário" ng-model="uc.usuario.email" />
-                </div>
-
-                <div class="col-md-1">
-                    <label for="campoSenha" class="control-label">Senha</label>
-                </div>
-
-                <div class="col-md-3">
-                    <input id="campoSenha" type="password" class="form-control" ng-minLength="5" placeholder="Senha" ng-model="uc.usuario.senha" />
-                </div>
-
-            </div>
-
-            </p>
-
-            <div class="row">
-
-                <div class="col-md-1">
-                    <label for="campoRua" class="control-label">Rua</label>
-                </div>
-
-                <div class="col-md-9">
-                    <input id="campoRua" type="text" class="form-control" ng-minLength="5" placeholder="Rua do Usuário" ng-model="uc.usuario.rua" />
-                </div>
-
-                <div class="col-md-1">
-                    <label for="campoNumero" class="control-label">Número</label>
-                </div>
-
-                <div class="col-md-1">
-                    <input id="campoNumero" type="text" class="form-control" ng-minLength="5" placeholder="Nro" ng-model="uc.usuario.numero" />
-                </div>
-
-            </div>
-
-            </p>
-
-            <div class="row">
-
-                <div class="col-md-1">
-                    <label for="campoBairro" class="control-label">Bairro</label>
+                    <label for="campoValor" class="control-label">Unitário</label>
                 </div>
 
                 <div class="col-md-5">
-                    <input id="campoRua" type="text" class="form-control" ng-minLength="5" placeholder="Bairro do Usuário" ng-model="uc.usuario.bairro" />
+
+                    <div class="input-group">
+                        <span class="input-group-addon">R$</span>
+                        <input type="number" id="campoValor" placeholder="Valor Unitário do Produto" ng-model="pc.produto.valorUnitario" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    </div>
+
                 </div>
 
                 <div class="col-md-1">
-                    <label for="campoComplemento" class="control-label">Complemento</label>
+                    <label for="campoCategoria" class="control-label">Categoria</label>
                 </div>
 
                 <div class="col-md-5">
-                    <input id="campoComplemento" type="text" class="form-control" ng-minLength="5" placeholder="Complemento" ng-model="uc.usuario.complemento" />
+                    <select class="form-control" id="campoUf" ng-model="pc.produto.categoria">
+                    <option value="">Selecione</option>
+                    <option ng-repeat="categoriaAtual in pc.categorias">{{categoriaAtual}}</option>
+                  </select>
                 </div>
 
             </div>
 
             </p>
 
+            </p>
+
             <div class="row">
 
-                <div class="col-md-1">
-                    <label for="campoCidade" class="control-label">Cidade</label>
-                </div>
+                <div class="col-sm-offset-1 col-sm-11">
 
-                <div class="col-md-6">
-                    <input id="campoCidade" type="text" class="form-control" ng-minLength="5" placeholder="Cidade do Usuário" ng-model="uc.usuario.cidade" />
-                </div>
-
-                <div class="col-md-1">
-                    <label for="campoCep" class="control-label">CEP</label>
-                </div>
-
-                <div class="col-md-2">
-                    <input id="campoCep" type="text" class="form-control" ng-minLength="5" placeholder="Cep do Usuário" ng-model="uc.usuario.cep" />
-                </div>
-
-                <div class="col-md-1">
-                    <label for="campoUf" class="control-label">UF</label>
-                </div>
-
-                <div class="col-md-1">
-
-                    <select class="form-control" id="campoUf" ng-model="uc.usuario.uf">
-                      <option ng-repeat="estadoAtual in uc.estados">{{estadoAtual}}</option>
-                    </select>
+                    <div class="form-group">
+                        <label for="comment">Descrição Breve</label>
+                        <textarea class="form-control" rows="2" id="comment"></textarea>
+                    </div>
 
                 </div>
 
             </div>
 
             </p>
-
             <div class="row">
 
-                <div class="col-md-1">
-                    <label for="campoTelefone" class="control-label">Telefone</label>
-                </div>
+                <div class="col-sm-offset-1 col-sm-11">
 
-                <div class="col-md-5">
-                    <input id="campoTelefone" type="text" class="form-control" ng-minLength="5" placeholder="Telefone do Usuário" ng-model="uc.usuario.telefone" />
-                </div>
+                    <div class="form-group">
+                        <label for="comment">Detalhes Gerais</label>
+                        <textarea class="form-control" rows="8" id="comment"></textarea>
+                    </div>
 
-                <div class="col-md-1">
-                    <label for="campoCelular" class="control-label">Celular</label>
-                </div>
-
-                <div class="col-md-5">
-                    <input id="campoTelefone" type="text" class="form-control" ng-minLength="5" placeholder="Celular do Usuário" ng-model="uc.usuario.celular" />
                 </div>
 
             </div>
+
+
 
             </p>
 
@@ -228,7 +151,7 @@
                                 <tr>
                                     <th>Identificador</th>
                                     <th>Descrição</th>
-                                    <th>Valor</th>
+                                    <th>Unitário</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -258,7 +181,7 @@
                         </p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </p>
                     </div>
                 </div>
             </div>

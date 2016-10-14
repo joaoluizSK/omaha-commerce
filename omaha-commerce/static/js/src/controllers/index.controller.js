@@ -9,4 +9,14 @@ function IndexController($scope, indexService, $location) {
         tipo: 'A'
     };
 
+    $scope.categorias = [{
+        descricao: 'Camisetas de Jogo'
+    }, {
+        descricao: 'Equipamentos'
+    }, {
+        descricao: 'Bolas'
+    }, {
+        descricao: 'Camisetas Casuais'
+    }];
+
 };

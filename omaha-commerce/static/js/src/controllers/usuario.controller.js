@@ -68,7 +68,6 @@ function UsuarioController($scope, usuarioService, $location) {
     uc.editar = function(usuarioEditar) {
 
         uc.usuario = usuarioEditar;
-        console.log("passei");
         $('#myModal').modal('hide');
 
     }
@@ -80,8 +79,6 @@ function UsuarioController($scope, usuarioService, $location) {
     }
 
     uc.init = function() {
-
-        console.log("Entrou");
 
     }
 

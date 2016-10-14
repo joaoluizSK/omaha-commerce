@@ -1,91 +1,53 @@
-app.controller('UsuarioController', UsuarioController);
+app.controller('ProdutoController', ProdutoController);
 
-UsuarioController.$inject = ['$scope', 'UsuarioService', '$location'];
+ProdutoController.$inject = ['$scope', 'ProdutoService', '$location'];
 
-function UsuarioController($scope, usuarioService, $location) {
+function ProdutoController($scope, produtoService, $location) {
 
-    var usuarios = [{
-        id: '1',
-        nome: 'Wesley Fuchter',
-        cpf: '099.565.869-27'
+    var produtos = [{
+
     }];
 
-    var uc = this;
+    var pc = this;
 
-    uc.usuarios = usuarios;
-
-    var estados = ["AC",
-        "AL",
-        "AM",
-        "AP",
-        "BA",
-        "CE",
-        "DF",
-        "ES",
-        "GO",
-        "MA",
-        "MT",
-        "MS",
-        "MG",
-        "PA",
-        "PB",
-        "PR",
-        "PE",
-        "PI",
-        "RJ",
-        "RN",
-        "RO",
-        "RS",
-        "RR",
-        "SC",
-        "SE",
-        "SP",
-        "TO"
-    ];
-
-    uc.estados = estados;
+    pc.produtos = produtos;
 
     uc.salvar = function() {
 
-        usuarioService.salvar(uc.usuario);
+    }
 
-        uc.usuarios.push(uc.usuario);
+    pc.novo = function() {
+
+        pc.produto = {};
 
     }
 
-    uc.novo = function() {
+    pc.remover = function() {
 
-        uc.usuario = {};
-
-    }
-
-    uc.remover = function() {
-
-        usuarioService.remover(uc.usuario);
+        produtoService.remover(pc.produto);
 
     }
 
-    uc.editar = function(usuarioEditar) {
+    pc.editar = function(produtoEditar) {
 
-        uc.usuario = usuarioEditar;
-        console.log("passei");
+        pc.produto = produtoEditar;
         $('#myModal').modal('hide');
 
     }
 
-    uc.consultarTodos = function() {
+    pc.consultarTodos = function() {
 
-        uc.usuarios = usuarioService.consultarTodos();
+        pc.produtos = produtoService.consultarTodos();
 
     }
 
-    uc.init = function() {
+    pc.init = function() {
 
         console.log("Entrou");
 
     }
 
-    uc.listar = function() {
+    pc.listar = function() {
 
     }
 
