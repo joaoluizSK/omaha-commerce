@@ -33,7 +33,14 @@ app.config(function($routeProvider, $locationProvider) {
 
     $routeProvider.when('/loja', {
         templateUrl: 'loja.html',
-        contoller: 'LojaController'
+        contoller: 'LojaController',
+        controlerAs: 'lc'
+    });
+
+    $routeProvider.when('/carrinho', {
+        templateUrl: 'carrinho.html',
+        contoller: 'CarrinhoController',
+        controlerAs: 'cc'
     });
 
     $routeProvider.otherwise({

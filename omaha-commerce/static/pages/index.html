@@ -15,12 +15,14 @@
     <script src="../js/lib/angular/angular-route.min.js"></script>
     <script src="../js/src/app/app.js"></script>
     <script src="../js/src/services/usuario.service.js"></script>
+    <script src="../js/src/services/carrinho.service.js"></script>
     <script src="../js/src/services/login.service.js"></script>
     <script src="../js/src/services/loja.service.js"></script>
     <script src="../js/src/services/index.service.js"></script>
     <script src="../js/src/controllers/usuario.controller.js"></script>
     <script src="../js/src/controllers/login.controller.js"></script>
     <script src="../js/src/controllers/loja.controller.js"></script>
+    <script src="../js/src/controllers/carrinho.controller.js"></script>
     <script src="../js/src/controllers/index.controller.js"></script>
 </head>
 
@@ -71,15 +73,15 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user" ng-show="usuario">
                             <li><a href="#/usuario"><i class="fa fa-user fa-fw"></i> Configurações Pessoais </a></li>
-                    </li>
-                    <li ng-show="usuario.tipo === 'C'"><a href="#"><i class="fa fa-gear fa-fw"></i> Histórico de Pedidos</a>
-                    </li>
-                    <li ng-show="usuario.tipo === 'C'"><a href="#"><i class="fa fa-gear fa-fw"></i> Carrinho de Compras</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
-                    </li>
-                    </ul>
+                            </li>
+                            <li ng-show="usuario.tipo === 'C'"><a href="#/historico"><i class="fa fa-gear fa-fw"></i> Histórico de Pedidos</a>
+                            </li>
+                            <li ng-show="usuario.tipo === 'C'"><a href="#/carrinho"><i class="fa fa-gear fa-fw"></i> Carrinho de Compras</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                            </li>
+                        </ul>
                     <ul class="dropdown-menu dropdown-user" ng-show="!usuario">
                         <li><a href="#/login"><i class="fa fa-user fa-fw"></i> Acessar minha conta</a>
                         </li>
@@ -90,7 +92,13 @@
                     </li>
 
                 </ul>
-                <p class="navbar-text navbar-right" ng-show="usuario.nome">Bem vindo, {{usuario.nome}}</p>
+                <p class="navbar-text navbar-right" ng-show="usuario.nome">
+
+                  <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+
+                  Bem vindo, {{usuario.nome}}
+
+                </p>
             </div>
         </div>
     </nav>

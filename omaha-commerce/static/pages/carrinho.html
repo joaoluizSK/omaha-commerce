@@ -1,0 +1,119 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link href="../css/src/login.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container-fluid" ng-controller="CarrinhoController as cc" ng-init="cc.init()">
+
+        <div class="page-header">
+            <h3> Carrinho de Compras </h3>
+        </div>
+
+        <div id="busca" class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <div class="input-group-addon">Pesquisar</div>
+                        <input type="text" class="form-control" id="campoPesquisar" ng-model="filtroProdutos" placeholder="Digite aqui seu parâmetro de pesquisa" />
+                    </div>
+                </div>
+            </div>
+            </p>
+
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Valor Unitário</th>
+                        <th>Valor Total</th>
+                        <th>Remover</th >
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr ng-repeat="produto in cc.produtos | filter: filtroProdutos">
+
+                        <td> {{produto.descricao}} </td>
+                        <td> {{produto.quantidade}} </td>
+                        <td> {{produto.valorUnitario}} </td>
+                        <td> {{cc.calculaTotalProduto(produto)}} </td>
+                        <td>
+                          <button type="button" class="btn btn-danger" aria-label="Left Align" ng-click="cc.remover(produto)" ng-model="editar" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                          </button>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+                <tfoot>
+                  <tr>
+                      <th></th>
+                      <th>Valor Total Frete</th>
+                      <th>
+                        <div class="input-group">
+                          <span class="input-group-addon">R$</span>
+                          <input type="text" class="form-control" ng-disabled="true" ng-model="cc.calculaFrete()" aria-label="Amount (to the nearest dollar)">
+                          <span class="input-group-addon">.00</span>
+                        </div>
+                      </th>
+                      <th>Valor Total Produtos</th>
+                      <th>
+                        <div class="input-group">
+                          <span class="input-group-addon">R$</span>
+                          <input type="text" class="form-control" ng-disabled="true" ng-model="cc.calculaTotalProdutos()" aria-label="Amount (to the nearest dollar)">
+                          <span class="input-group-addon">.00</span>
+                        </div>
+                      </th>
+                  </tr>
+                  <tr>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th>Valor Total Pedido</th>
+                      <th>
+                        <div class="input-group">
+                          <span class="input-group-addon">R$</span>
+                          <input type="text" class="form-control" ng-disabled="true" ng-model="cc.calculaTotalPedido()" aria-label="Amount (to the nearest dollar)">
+                          <span class="input-group-addon">.00</span>
+                        </div>
+                      </th>
+                  </tr>
+                  <tr>
+                      <th></th>
+                      <th>Forma de Pagamento</th>
+                      <th>
+                        <select class="form-control" id="campoFormaPagamento" ng-model="formaPagamento">
+                          <option>Selecione</option>
+                          <option>Boleto Bancário</option>
+                          <option>Cartão de Crédito</option>
+                          <option>Depósito</option>
+                        </select>
+                      </th>
+                      <th>
+                        <div class="btn-group" role="group" aria-label="...">
+                          <button type="button" class="btn btn-success">Confirmar Compra</button>
+                        </div>
+                      </th>
+                      <th></th>
+                  </tr>
+                </tfoot>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
