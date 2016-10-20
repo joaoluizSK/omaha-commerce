@@ -20,6 +20,7 @@
         "nodemon": "^1.10.2",
         "sequelize": "^3.19.2",
         "body-parser": "^1.15.0",
-        "consign": "^0.1.2"
+        "consign": "^0.1.2",
+        "nodemon": "^1.0.15"
     }
 }
