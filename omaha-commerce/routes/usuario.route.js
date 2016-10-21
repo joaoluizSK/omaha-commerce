@@ -1,5 +1,7 @@
 module.exports = app => {
 
+  const Usuario = app.model.usuario.usuario;
+
     app.post("/usuario/salvar", (req, res) => {
 
         console.log(req.body);
