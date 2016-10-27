@@ -4,11 +4,7 @@ UsuarioController.$inject = ['$scope', 'UsuarioService', '$location'];
 
 function UsuarioController($scope, usuarioService, $location) {
 
-    var usuarios = [{
-        id: '1',
-        nome: 'Wesley Fuchter',
-        cpf: '099.565.869-27'
-    }];
+    var usuarios = [];
 
     var uc = this;
 
@@ -47,9 +43,11 @@ function UsuarioController($scope, usuarioService, $location) {
 
     uc.salvar = function() {
 
-        usuarioService.salvar(uc.usuario);
+        var usuarioRetorno = usuarioService.salvar(uc.usuario);
 
-        uc.usuarios.push(uc.usuario);
+        console.log(usuarioRetorno.config.data);
+
+        //uc.usuarios.push(uc.usuario);
 
     }
 
@@ -74,7 +72,9 @@ function UsuarioController($scope, usuarioService, $location) {
 
     uc.consultarTodos = function() {
 
-        uc.usuarios = usuarioService.consultarTodos();
+      console.log("testes");
+
+      uc.usuarios = usuarioService.consultarTodos();
 
     }
 

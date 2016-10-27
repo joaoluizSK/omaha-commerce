@@ -6,7 +6,7 @@ function UsuarioService($http) {
 
   var salvar = function(usuario) {
 
-    $http.post('/usuario/salvar',usuario);
+    return $http.post('/usuario/salvar',usuario);
 
   }
 

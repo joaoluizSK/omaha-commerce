@@ -6,8 +6,10 @@ module.exports = app => {
 
         console.log(req.body);
 
-        Usuario.create(req.body).then(function(user) {
+        Usuario.create(req.body).then(function(data) {
             console.log("Usuário Salvo com sucesso!");
+            console.log(data);
+            res.json(data);
         });
 
     });
@@ -30,9 +32,14 @@ module.exports = app => {
 
     app.get("/usuario/consultarTodos", (req, res) => {
 
-        console.log(req.body);
+      console.log("teste");
 
-        res.json(req.body);
+        Usuario.findAll({}).then(result => {
+          console.log(result);
+          res.json(result);
+        }).catch(error => {
+          res.status(412).json({msg: error.message});
+        });
 
     });
 
