@@ -32,12 +32,10 @@ module.exports = app => {
 
     app.get("/usuario/consultarTodos", (req, res) => {
 
-      console.log("teste");
-
-        Usuario.findAll({}).then(result => {
+        Usuario.findAll({}).then(function(result) {
           console.log(result);
           res.json(result);
-        }).catch(error => {
+        }).catch(function(error) {
           res.status(412).json({msg: error.message});
         });
 

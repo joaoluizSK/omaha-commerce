@@ -6,7 +6,7 @@ function UsuarioService($http) {
 
   var salvar = function(usuario) {
 
-    return $http.post('/usuario/salvar',usuario);
+    $http.post('/usuario/salvar',usuario);
 
   }
 
@@ -30,7 +30,17 @@ function UsuarioService($http) {
 
   var consultarPorId = function(id) {
 
-    return $http.get('/usuario/consultarPorId/{id}',id);
+    var usuarioRetorno;
+
+    $http.get('/usuario/consultarPorId/{id}',id).success(function(data, status, headers, config) {
+
+      usuarioRetorno = data;
+
+    }).error(function(data, status, headers, config) {
+
+    });
+
+    return usuarioRetorno;
 
   }
 

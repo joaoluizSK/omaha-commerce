@@ -1,6 +1,6 @@
 sequelize
     .sync({
-        force: true
+        force: false
     })
     .then(function(err) {
         console.log('Sucesso ao sincronizar base de dados!');

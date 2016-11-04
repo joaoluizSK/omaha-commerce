@@ -72,9 +72,15 @@ function UsuarioController($scope, usuarioService, $location) {
 
     uc.consultarTodos = function() {
 
-      console.log("testes");
+      usuarioService.consultarTodos().success(function(data, status, headers, config) {
 
-      uc.usuarios = usuarioService.consultarTodos();
+        uc.usuarios = data;
+
+      }).error(function(data, status, headers, config) {
+
+        alert("Erro ao buscar usuário");
+
+      });
 
     }
 

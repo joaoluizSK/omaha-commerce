@@ -6,7 +6,7 @@ function IndexController($scope, indexService, $location) {
 
     $scope.usuario = {
         nome: 'Wesley Fuchter',
-        tipo: 'C'
+        tipo: 'A'
     };
 
     $scope.categorias = [{
