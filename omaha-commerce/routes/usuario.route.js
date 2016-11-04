@@ -4,11 +4,8 @@ module.exports = app => {
 
     app.post("/usuario/salvar", (req, res) => {
 
-        console.log(req.body);
-
         Usuario.create(req.body).then(function(data) {
             console.log("Usuário Salvo com sucesso!");
-            console.log(data);
             res.json(data);
         });
 
@@ -33,7 +30,6 @@ module.exports = app => {
     app.get("/usuario/consultarTodos", (req, res) => {
 
         Usuario.findAll({}).then(function(result) {
-          console.log(result);
           res.json(result);
         }).catch(function(error) {
           res.status(412).json({msg: error.message});

@@ -45,9 +45,7 @@ function UsuarioController($scope, usuarioService, $location) {
 
         var usuarioRetorno = usuarioService.salvar(uc.usuario);
 
-        console.log(usuarioRetorno.config.data);
-
-        //uc.usuarios.push(uc.usuario);
+        alert("Usuário salvo com sucesso!");
 
     }
 
@@ -72,7 +70,7 @@ function UsuarioController($scope, usuarioService, $location) {
 
     uc.consultarTodos = function() {
 
-      usuarioService.consultarTodos().success(function(data, status, headers, config) {
+      usuarioService.consultarTodos().success(function(data) {
 
         uc.usuarios = data;
 
