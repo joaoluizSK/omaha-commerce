@@ -42,44 +42,51 @@ function UsuarioController($scope, usuarioService, $location) {
     uc.estados = estados;
 
     uc.salvar = function() {
-
-        var usuarioRetorno = usuarioService.salvar(uc.usuario);
-
-        alert("Usuário salvo com sucesso!");
-
+      if (uc.usuario.id) {
+        usuarioService.atualizar(uc.usuario).then(function(response) {
+          alert("Usuário atualizado com sucesso!");
+          usuarioService.consultarPorId(uc.usuario.id).then(function(response) {
+            console.log(response.data);
+            uc.usuario = response.data;
+          });
+        }).catch(function(response) {
+          alert("Erro ao atualizar usuário!");
+        });
+      } else {
+        usuarioService.salvar(uc.usuario).then(function(response) {
+          uc.usuario = response.data;
+          alert("Usuário salvo com sucesso!");
+        }).catch(function(response) {
+          alert("Erro ao salvar usuário!");
+        });
+      }
     }
 
     uc.novo = function() {
-
-        uc.usuario = {};
-
+      uc.usuario = {};
     }
 
-    uc.remover = function() {
-
-        usuarioService.remover(uc.usuario);
-
+    uc.remover = function(usuario) {
+      usuarioService.remover(usuario).then(function(response) {
+        uc.usuario = {};
+        alert("Usuário removido com sucesso!");
+      }).catch(function(response) {
+        alert("Erro ao remover usuário!");
+      });
     }
 
     uc.editar = function(usuarioEditar) {
-
-        uc.usuario = usuarioEditar;
-        $('#myModal').modal('hide');
-
+      uc.usuario = usuarioEditar;
+      $('#myModal').modal('hide');
     }
 
     uc.consultarTodos = function() {
-
-      usuarioService.consultarTodos().success(function(data) {
-
-        uc.usuarios = data;
-
-      }).error(function(data, status, headers, config) {
-
-        alert("Erro ao buscar usuário");
-
+      usuarioService.consultarTodos().then(function(response) {
+        uc.usuarios = response.data;
+      }).catch(function(response) {
+        console.log("Erro ao buscar usuários");
+        uc.usuarios = [];
       });
-
     }
 
     uc.init = function() {
