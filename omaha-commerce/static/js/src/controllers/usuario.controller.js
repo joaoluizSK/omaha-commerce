@@ -46,7 +46,6 @@ function UsuarioController($scope, usuarioService, $location) {
         usuarioService.atualizar(uc.usuario).then(function(response) {
           alert("Usuário atualizado com sucesso!");
           usuarioService.consultarPorId(uc.usuario.id).then(function(response) {
-            console.log(response.data);
             uc.usuario = response.data;
           });
         }).catch(function(response) {
@@ -84,17 +83,9 @@ function UsuarioController($scope, usuarioService, $location) {
       usuarioService.consultarTodos().then(function(response) {
         uc.usuarios = response.data;
       }).catch(function(response) {
-        console.log("Erro ao buscar usuários");
+        console.log("Erro ao buscar usuários.");
         uc.usuarios = [];
       });
-    }
-
-    uc.init = function() {
-
-    }
-
-    uc.listar = function() {
-
     }
 
 };
