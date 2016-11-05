@@ -7,7 +7,7 @@
 
 <body>
 
-    <div class="container-fluid" ng-controller="ProdutoController as pc" ng-init="pc.init()">
+    <div class="container-fluid" ng-controller="ProdutoController as pc">
 
         <div class="page-header">
             <h3> Cadastro de Produto </h3>
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="col-md-11">
-                    <input id="campoNome" type="text" class="form-control" ng-minLength="5" placeholder="Nome do Produto" ng-model="pc.produto.nome" />
+                    <input id="campoNome" type="text" class="form-control" placeholder="Nome do Produto" ng-model="pc.produto.nome" />
                 </div>
 
             </div>
@@ -53,7 +53,7 @@
 
                     <div class="input-group">
                         <span class="input-group-addon">R$</span>
-                        <input type="number" id="campoValor" placeholder="Valor Unitário do Produto" ng-model="pc.produto.valorUnitario" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <input type="number" id="campoValor" placeholder="Valor Unitário do Produto" ng-model="pc.produto.unitario" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                     </div>
 
                 </div>
@@ -81,7 +81,7 @@
 
                     <div class="form-group">
                         <label for="comment">Descrição Breve</label>
-                        <textarea class="form-control" rows="2" id="comment"></textarea>
+                        <textarea ng-model="pc.produto.descricaoBreve" class="form-control" rows="2" id="comment"></textarea>
                     </div>
 
                 </div>
@@ -95,7 +95,7 @@
 
                     <div class="form-group">
                         <label for="comment">Detalhes Gerais</label>
-                        <textarea class="form-control" rows="8" id="comment"></textarea>
+                        <textarea ng-model="pc.produto.detalhes" class="form-control" rows="8" id="comment"></textarea>
                     </div>
 
                 </div>
@@ -108,16 +108,16 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-1 col-sm-10">
-                    <button type="text" ng-click="uc.novo()" class="btn btn-primary">
+                    <button type="text" ng-click="pc.novo()" class="btn btn-primary">
                       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo
                     </button>
-                    <button type="text" ng-click="uc.salvar()" class="btn btn-success">
+                    <button type="text" ng-click="pc.salvar()" class="btn btn-success">
                       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Salvar
                     </button>
-                    <button type="button" class="btn btn-danger" aria-label="Left Align" ng-click="deletar(uc.usuario)">
+                    <button ng-click="pc.remover(pc.produto)" type="button" class="btn btn-danger" aria-label="Left Align">
                       <span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span> Remover
                     </button>
-                    <button data-toggle="modal" data-target="#myModal" type="button" class="btn btn-default" aria-label="Left Align">
+                    <button ng-click="pc.consultarTodos()" data-toggle="modal" data-target="#myModal" type="button" class="btn btn-default" aria-label="Left Align">
                       <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Listar Todos
                     </button>
                 </div>
@@ -162,8 +162,8 @@
                                 <tr ng-repeat="produtoAtual in pc.produtos | filter: filtroProdutos">
 
                                     <td> {{produtoAtual.id}} </td>
-                                    <td> {{produtoAtual.descricao}} </td>
-                                    <td> {{produtoAtual.valor}} </td>
+                                    <td> {{produtoAtual.nome}} </td>
+                                    <td> {{produtoAtual.unitario | currency}} </td>
 
                                     <td>
                                         <button type="button" class="btn btn-default" aria-label="Left Align" ng-click="pc.editar(produtoAtual)" ng-model="editar" data-toggle="tooltip" data-placement="left" title="Tooltip on left">

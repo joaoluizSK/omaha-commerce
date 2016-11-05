@@ -24,12 +24,12 @@ function CategoriaService($http) {
     return $http.get('/categoria/consultarPorId/'+id)
   }
 
-    return {
-        salvar: salvar,
-        atualizar: atualizar,
-        remover: remover,
-        consultarTodos: consultarTodos,
-        consultarPorId: consultarPorId
-    }
+  return {
+      salvar: salvar,
+      atualizar: atualizar,
+      remover: remover,
+      consultarTodos: consultarTodos,
+      consultarPorId: consultarPorId
+  }
 
 };
