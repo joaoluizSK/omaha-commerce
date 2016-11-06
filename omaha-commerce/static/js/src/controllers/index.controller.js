@@ -4,19 +4,25 @@ IndexController.$inject = ['$scope', 'IndexService', '$location'];
 
 function IndexController($scope, indexService, $location) {
 
-    $scope.usuario = {
-        nome: 'Wesley Fuchter',
-        tipo: 'A'
-    };
+  var ic = this;
 
-    $scope.categorias = [{
-        descricao: 'Camisetas de Jogo'
-    }, {
-        descricao: 'Equipamentos'
-    }, {
-        descricao: 'Bolas'
-    }, {
-        descricao: 'Camisetas Casuais'
-    }];
+  ic.usuario = {
+      nome: 'Wesley Fuchter',
+      tipo: 'A'
+  };
+  
+  categorias = [];
+  produtos = [];
+
+  ic.categorias = categorias;
+  ic.produtos = produtos;
+
+  indexService.buscaCategorias().then(function(response) {
+      ic.categorias = response.data;
+  });
+
+  indexService.buscaProdutos().then(function(response) {
+      ic.produtos = response.data;
+  });
 
 };

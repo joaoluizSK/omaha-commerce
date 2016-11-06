@@ -30,7 +30,7 @@
     <script src="../js/src/controllers/index.controller.js"></script>
 </head>
 
-<body ng-controller="IndexController">
+<body ng-controller="IndexController as ic">
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -45,7 +45,7 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown" ng-show="usuario.tipo === 'A'">
+                    <li class="dropdown" ng-show="ic.usuario.tipo === 'A'">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             Administração
                         </a>
@@ -54,7 +54,7 @@
                             <li ng-show="false"><a href="#"><i class="fa fa-user fa-fw"></i> Conta de e-Mail </a></li>
                         </ul>
                     </li>
-                    <li class="dropdown" ng-show="usuario.tipo === 'P' || usuario.tipo === 'A'">
+                    <li class="dropdown" ng-show="ic.usuario.tipo === 'P' || ic.usuario.tipo === 'A'">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             Cadastros
                         </a>
@@ -63,7 +63,7 @@
                             <li><a href="#/produto"><i class="fa fa-user fa-fw"></i> Produtos </a></li>
                         </ul>
                     </li>
-                    <li class="dropdown" ng-show="usuario.tipo === 'P' || usuario.tipo === 'A'">
+                    <li class="dropdown" ng-show="ic.usuario.tipo === 'P' || ic.usuario.tipo === 'A'">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             Vendas
                         </a>
@@ -78,9 +78,9 @@
                         <ul class="dropdown-menu dropdown-user" ng-show="usuario">
                             <li><a href="#/usuario"><i class="fa fa-user fa-fw"></i> Configurações Pessoais </a></li>
                             </li>
-                            <li ng-show="usuario.tipo === 'C'"><a href="#/historico"><i class="fa fa-gear fa-fw"></i> Histórico de Pedidos</a>
+                            <li ng-show="ic.usuario.tipo === 'C'"><a href="#/historico"><i class="fa fa-gear fa-fw"></i> Histórico de Pedidos</a>
                             </li>
-                            <li ng-show="usuario.tipo === 'C'"><a href="#/carrinho"><i class="fa fa-gear fa-fw"></i> Carrinho de Compras</a>
+                            <li ng-show="ic.usuario.tipo === 'C'"><a href="#/carrinho"><i class="fa fa-gear fa-fw"></i> Carrinho de Compras</a>
                             </li>
                             <li class="divider"></li>
                             <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
@@ -96,11 +96,11 @@
                     </li>
 
                 </ul>
-                <p class="navbar-text navbar-right" ng-show="usuario.nome">
+                <p class="navbar-text navbar-right" ng-show="ic.usuario.nome">
 
                   <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
 
-                  Bem vindo, {{usuario.nome}}
+                  Bem vindo, {{ic.usuario.nome}}
 
                 </p>
             </div>
@@ -111,19 +111,7 @@
         <div ng-view></div>
     </div>
 
-    <div class="container">
 
-        <hr>
-
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Omaha Commerce 2016</p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
 
 </body>
 
