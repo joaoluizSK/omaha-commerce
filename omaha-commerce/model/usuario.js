@@ -13,6 +13,13 @@ const Usuario = sequelize.define('Usuario', {
             notEmpty: true
         }
     },
+    tipoUsuario: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    },
     cpf: {
         type: Sequelize.STRING,
         allowNull: false,

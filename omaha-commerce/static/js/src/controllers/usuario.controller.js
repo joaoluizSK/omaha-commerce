@@ -10,6 +10,16 @@ function UsuarioController($scope, usuarioService, $location) {
 
     uc.usuarios = usuarios;
 
+    var idUsuario = sessionStorage.getItem("idUsuario");
+
+    uc.usuarioSessao = {};
+
+    if (idUsuario) {
+      indexService.buscaUsuarioLogado(idUsuario).then(function(response) {
+        uc.usuarioSessao = response.data;
+      });
+    }
+
     var estados = ["AC",
         "AL",
         "AM",

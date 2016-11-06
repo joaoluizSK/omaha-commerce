@@ -131,7 +131,7 @@
                     <label for="campoCidade" class="control-label">Cidade</label>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <input id="campoCidade" type="text" class="form-control" placeholder="Cidade do Usuário" ng-model="uc.usuario.cidade" />
                 </div>
 
@@ -139,7 +139,7 @@
                     <label for="campoCep" class="control-label">CEP</label>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <input id="campoCep" type="text" class="form-control" placeholder="Cep do Usuário" ng-model="uc.usuario.cep" />
                 </div>
 
@@ -165,7 +165,7 @@
                     <label for="campoTelefone" class="control-label">Telefone</label>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-3">
                     <input id="campoTelefone" type="text" class="form-control" placeholder="Telefone do Usuário" ng-model="uc.usuario.telefone" />
                 </div>
 
@@ -173,8 +173,22 @@
                     <label for="campoCelular" class="control-label">Celular</label>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-3">
                     <input id="campoTelefone" type="text" class="form-control" placeholder="Celular do Usuário" ng-model="uc.usuario.celular" />
+                </div>
+
+                <div class="col-md-1">
+                    <label for="campoUf" class="control-label">Tipo</label>
+                </div>
+
+                <div class="col-md-3">
+
+                    <select class="form-control" id="campoUf" ng-model="uc.usuario.tipoUsuario" ng-hide="uc.usuarioSessao.tipoUsuario === 'C'">
+                      <option value="A" ng-hide="uc.usuarioSessao.tipoUsuario === 'P'">Administrador</option>
+                      <option value="P">Padrão</option>
+                      <option value="C">Cliente</option>
+                    </select>
+
                 </div>
 
             </div>

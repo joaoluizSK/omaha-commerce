@@ -4,7 +4,8 @@ app.config(function($routeProvider, $locationProvider) {
 
     $routeProvider.when('/login', {
         templateUrl: 'login.html',
-        contoller: 'LoginController'
+        contoller: 'LoginController',
+        controlerAs: 'lc'
     });
 
     $routeProvider.when('/usuario', {

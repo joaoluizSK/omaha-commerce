@@ -7,17 +7,17 @@
 
   </head>
   <body>
-    <div class="container" ng-app="app" ng-controller="LoginController">
+    <div class="container" ng-app="app" ng-controller="LoginController as lc">
 
       <form class="form-signin">
 
         <h3 class="form-signin-heading">Informe seu dados de acesso</h3>
         <label for="inputEmail" class="sr-only">Endereço de e-Mail</label>
-        <input ng-model="login.email" type="email" id="inputEmail" class="form-control" placeholder="Endereço de e-Mail" required autofocus>
+        <input ng-model="lc.login.email" type="email" id="inputEmail" class="form-control" placeholder="Endereço de e-Mail" required autofocus>
         <label for="inputPassword" class="sr-only">Senha</label>
-        <input ng-model="login.senha" type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+        <input ng-model="lc.login.senha" type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
 
-        <button class="btn btn-lg btn-success btn-block" ng-click="logar()">Entrar</button>
+        <button class="btn btn-lg btn-success btn-block" ng-click="lc.logar()">Entrar</button>
 
       </form>
 

@@ -1,18 +1,13 @@
 app.service('IndexService', IndexService);
 
-IndexService.$inject = ['$http','CategoriaService','ProdutoService'];
+IndexService.$inject = ['$http','UsuarioService'];
 
-function IndexService($http, categoriaService, produtoService) {
+function IndexService($http, usuarioService) {
 
-  var buscaCategorias = function() {
-    return categoriaService.consultarTodos();
+  var buscaUsuarioLogado = function(idUsuario) {
+    return usuarioService.consultarPorId(idUsuario);
   }
 
-  var buscaProdutos = function() {
-    return produtoService.consultarTodos();
-  }
-
-  return {buscaCategorias : buscaCategorias,
-          buscaProdutos : buscaProdutos}
+  return {buscaUsuarioLogado: buscaUsuarioLogado}
 
 };

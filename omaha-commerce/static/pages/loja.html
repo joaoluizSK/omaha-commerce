@@ -1,4 +1,4 @@
-<div class="container" ng-controller="IndexController as ic">
+<div class="container" ng-controller="LojaController as lc">
 
   <div class="container">
 
@@ -8,7 +8,7 @@
             <p class="lead">Categorias</p>
             <div class="list-group">
 
-                <a class="list-group-item" ng-repeat="categoria in ic.categorias">{{categoria.descricao}}</a>
+                <a class="list-group-item" ng-repeat="categoria in lc.categorias">{{categoria.descricao}}</a>
 
             </div>
         </div>
@@ -19,14 +19,14 @@
 
             <tbody>
 
-              <tr ng-repeat="produtoAtual in ic.produtos">
+              <tr ng-repeat="produtoAtual in lc.produtos">
 
                 <td> {{produtoAtual.nome}} </td>
                 <td> {{produtoAtual.descricaoBreve}} </td>
                 <td> {{produtoAtual.unitario | currency}} </td>
 
                 <td>
-                  <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-default" aria-label="Left Align" ng-click="pc.editar(produtoAtual)" ng-model="editar" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+                  <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-default" aria-label="Left Align" ng-click="lc.editar(produtoAtual)" ng-model="editar" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
                     <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
                   </button>
                 </td>

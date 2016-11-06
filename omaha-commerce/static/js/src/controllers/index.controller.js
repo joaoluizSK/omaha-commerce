@@ -4,25 +4,20 @@ IndexController.$inject = ['$scope', 'IndexService', '$location'];
 
 function IndexController($scope, indexService, $location) {
 
+  usuario = {}
   var ic = this;
+  ic.usuario = usuario;
 
-  ic.usuario = {
-      nome: 'Wesley Fuchter',
-      tipo: 'A'
-  };
-  
-  categorias = [];
-  produtos = [];
-
-  ic.categorias = categorias;
-  ic.produtos = produtos;
-
-  indexService.buscaCategorias().then(function(response) {
-      ic.categorias = response.data;
-  });
-
-  indexService.buscaProdutos().then(function(response) {
-      ic.produtos = response.data;
-  });
+  ic.init = function() {
+    var idUsuario = sessionStorage.getItem("idUsuario");
+    if (idUsuario) {
+      indexService.buscaUsuarioLogado(idUsuario).then(function(response) {
+        ic.usuario = response.data;
+        $location.path('/loja');
+      });
+    } else {
+      $location.path('/loja');
+    }
+  }
 
 };
