@@ -1,8 +1,8 @@
 app.controller('UsuarioController', UsuarioController);
 
-UsuarioController.$inject = ['$scope', 'UsuarioService', '$location'];
+UsuarioController.$inject = ['$scope', 'UsuarioService', '$location', 'IndexService'];
 
-function UsuarioController($scope, usuarioService, $location) {
+function UsuarioController($scope, usuarioService, $location, indexService) {
 
     var usuarios = [];
 

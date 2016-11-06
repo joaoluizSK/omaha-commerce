@@ -13,7 +13,7 @@
             <h3> Cadastro de Usuário </h3>
         </div>
 
-        <form class="form-horizontal">
+        <form name="formUsuario" class="form-horizontal">
 
             <div class="row">
 
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="col-md-8">
-                    <input id="campoNome" type="text" class="form-control" placeholder="Nome do Usuário" ng-model="uc.usuario.nome" />
+                    <input id="campoNome" required type="text" class="form-control" placeholder="Nome do Usuário" ng-model="uc.usuario.nome" />
                 </div>
 
                 <div class="col-md-1">
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <input id="campoDataNascimento" type="text" class="form-control" placeholder="Data de nascimento do Usuário" ng-model="uc.usuario.dataNascimento" />
+                    <input id="campoDataNascimento" required type="text" class="form-control" placeholder="Data de nascimento do Usuário" ng-model="uc.usuario.dataNascimento" />
                 </div>
 
             </div>
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <input id="campoCpf" type="text" class="form-control" placeholder="CPF do Usuário" ng-model="uc.usuario.cpf" />
+                    <input id="campoCpf" required type="text" class="form-control" placeholder="CPF do Usuário" ng-model="uc.usuario.cpf" />
                 </div>
 
                 <div class="col-md-1">
@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <input id="campoEmail" type="email" class="form-control" placeholder="E-mail do Usuário" ng-model="uc.usuario.email" />
+                    <input id="campoEmail" required type="email" class="form-control" placeholder="E-mail do Usuário" ng-model="uc.usuario.email" />
                 </div>
 
                 <div class="col-md-1">
@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input id="campoSenha" type="password" class="form-control" placeholder="Senha" ng-model="uc.usuario.senha" />
+                    <input id="campoSenha" required type="password" class="form-control" placeholder="Senha" ng-model="uc.usuario.senha" />
                 </div>
 
             </div>
@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="col-md-9">
-                    <input id="campoRua" type="text" class="form-control" placeholder="Rua do Usuário" ng-model="uc.usuario.rua" />
+                    <input id="campoRua" required type="text" class="form-control" placeholder="Rua do Usuário" ng-model="uc.usuario.rua" />
                 </div>
 
                 <div class="col-md-1">
@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="col-md-1">
-                    <input id="campoNumero" type="text" class="form-control" placeholder="Nro" ng-model="uc.usuario.numero" />
+                    <input id="campoNumero" required type="text" class="form-control" placeholder="Nro" ng-model="uc.usuario.numero" />
                 </div>
 
             </div>
@@ -110,7 +110,7 @@
                 </div>
 
                 <div class="col-md-5">
-                    <input id="campoRua" type="text" class="form-control" placeholder="Bairro do Usuário" ng-model="uc.usuario.bairro" />
+                    <input id="campoRua" required type="text" class="form-control" placeholder="Bairro do Usuário" ng-model="uc.usuario.bairro" />
                 </div>
 
                 <div class="col-md-1">
@@ -128,11 +128,11 @@
             <div class="row">
 
                 <div class="col-md-1">
-                    <label for="campoCidade" class="control-label">Cidade</label>
+                    <label for="campoCidade" required class="control-label">Cidade</label>
                 </div>
 
                 <div class="col-md-4">
-                    <input id="campoCidade" type="text" class="form-control" placeholder="Cidade do Usuário" ng-model="uc.usuario.cidade" />
+                    <input id="campoCidade" required type="text" class="form-control" placeholder="Cidade do Usuário" ng-model="uc.usuario.cidade" />
                 </div>
 
                 <div class="col-md-1">
@@ -140,7 +140,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <input id="campoCep" type="text" class="form-control" placeholder="Cep do Usuário" ng-model="uc.usuario.cep" />
+                    <input id="campoCep" required type="text" class="form-control" placeholder="Cep do Usuário" ng-model="uc.usuario.cep" />
                 </div>
 
                 <div class="col-md-1">
@@ -149,7 +149,7 @@
 
                 <div class="col-md-1">
 
-                    <select class="form-control" id="campoUf" ng-model="uc.usuario.uf">
+                    <select class="form-control" id="campoUf" required ng-model="uc.usuario.uf">
                       <option ng-repeat="estadoAtual in uc.estados">{{estadoAtual}}</option>
                     </select>
 
@@ -166,7 +166,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input id="campoTelefone" type="text" class="form-control" placeholder="Telefone do Usuário" ng-model="uc.usuario.telefone" />
+                    <input id="campoTelefone" required type="text" class="form-control" placeholder="Telefone do Usuário" ng-model="uc.usuario.telefone" />
                 </div>
 
                 <div class="col-md-1">
@@ -174,7 +174,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input id="campoTelefone" type="text" class="form-control" placeholder="Celular do Usuário" ng-model="uc.usuario.celular" />
+                    <input id="campoTelefone" required type="text" class="form-control" placeholder="Celular do Usuário" ng-model="uc.usuario.celular" />
                 </div>
 
                 <div class="col-md-1">
@@ -183,7 +183,7 @@
 
                 <div class="col-md-3">
 
-                    <select class="form-control" id="campoUf" ng-model="uc.usuario.tipoUsuario" ng-hide="uc.usuarioSessao.tipoUsuario === 'C'">
+                    <select class="form-control" id="campoUf" required ng-model="uc.usuario.tipoUsuario" ng-hide="uc.usuarioSessao.tipoUsuario === 'C'">
                       <option value="A" ng-hide="uc.usuarioSessao.tipoUsuario === 'P'">Administrador</option>
                       <option value="P">Padrão</option>
                       <option value="C">Cliente</option>
@@ -197,13 +197,13 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-1 col-sm-10">
-                    <button type="text" ng-click="uc.novo()" class="btn btn-primary">
+                    <button ng-disabled="!uc.usuario.id" type="text" ng-click="uc.novo()" class="btn btn-primary">
                       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo
                     </button>
-                    <button type="text" ng-click="uc.salvar()" class="btn btn-success">
+                    <button ng-disabled="formUsuario.$invalid || formUsuario.$pristine" type="text" ng-click="uc.salvar()" class="btn btn-success">
                       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Salvar
                     </button>
-                    <button type="button" class="btn btn-danger" aria-label="Left Align" ng-click="uc.remover(uc.usuario)">
+                    <button ng-disabled="!uc.usuario.id" type="button" class="btn btn-danger" aria-label="Left Align" ng-click="uc.remover(uc.usuario)">
                       <span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span> Remover
                     </button>
                     <button ng-click="uc.consultarTodos()" data-toggle="modal" data-target="#myModal" type="button" class="btn btn-default" aria-label="Left Align">
