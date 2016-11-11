@@ -8,7 +8,7 @@
             <p class="lead">Categorias</p>
             <div class="list-group">
 
-                <a class="list-group-item" ng-repeat="categoria in lc.categorias">{{categoria.descricao}}</a>
+                <a ng-click="lc.seleciona(categoria)" class="list-group-item" ng-repeat="categoria in lc.categorias">{{categoria.descricao}}</a>
 
             </div>
         </div>
@@ -19,14 +19,16 @@
 
             <tbody>
 
-              <tr ng-repeat="produtoAtual in lc.produtos">
+              <tr ng-repeat="produtoAtual in lc.produtos | filter: {categoria: lc.filtroCategoria} ">
 
                 <td> {{produtoAtual.nome}} </td>
                 <td> {{produtoAtual.descricaoBreve}} </td>
                 <td> {{produtoAtual.unitario | currency}} </td>
 
                 <td>
-                  <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-default" aria-label="Left Align" ng-click="lc.editar(produtoAtual)" ng-model="editar" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+                  <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-default"
+                      aria-label="Left Align" ng-click="lc.comprar(produtoAtual)"
+                      data-toggle="tooltip" data-placement="left" title="Tooltip on left">
                     <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
                   </button>
                 </td>
@@ -67,6 +69,33 @@
               </div>
                 <div class="modal-body">
 
+                  <div class="container-fluid">
+
+                      <div class="page-header">
+                          <h3> {{lc.compra.produto.nome}} </h3>
+                          <h3> {{lc.compra.produto.descricaoBreve}} </h3>
+                      </div>
+
+                      <form name="formUsuario" class="form-horizontal">
+                        <div class="row">
+
+                          <div class="col-md-1">
+                            <label for="campoId" class="control-label">Quantidade</label>
+                          </div>
+
+                          <div class="col-md-3">
+                            <input id="campoId" type="number" class="form-control" ng-model="lc.compra.quantidade" placeholder="Quantidade"/>
+                          </div>
+
+                          <div class="col-md-3">
+                            <button type="button" class="btn btn-success" aria-label="Left Align" ng-click="lc.adicionarNoCarrinho(lc.compra)">
+                              <span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar no Carrinho
+                            </button>
+                          </div>
+
+                        </div>
+                      </form>
+                    </div>
                 </div>
                 </p>
           </div>

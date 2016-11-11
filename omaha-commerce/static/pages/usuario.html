@@ -246,20 +246,16 @@
                             </thead>
 
                             <tbody>
-                                <!-- Listagem dos registros será aqui -->
 
                                 <tr ng-repeat="usuarioAtual in uc.usuarios | filter: filtroUsuarios">
-
                                     <td> {{usuarioAtual.id}} </td>
                                     <td> {{usuarioAtual.nome}} </td>
                                     <td> {{usuarioAtual.cpf}} </td>
-
                                     <td>
-                                        <button type="button" class="btn btn-default" aria-label="Left Align" ng-click="uc.editar(usuarioAtual)" ng-model="editar" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
-                                          <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                      <button type="button" class="btn btn-default" aria-label="Left Align" ng-click="uc.editar(usuarioAtual)" ng-model="editar" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+                                        <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                       </button>
                                     </td>
-
                                 </tr>
 
                             </tbody>

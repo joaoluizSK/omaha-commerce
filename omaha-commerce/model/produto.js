@@ -11,7 +11,7 @@ const Produto = sequelize.define('Produto', {
         allowNull: false,
         validate: {
             notEmpty: true
-        }
+        } 
     },
     unitario: {
         type: Sequelize.DECIMAL,
@@ -33,6 +33,10 @@ const Produto = sequelize.define('Produto', {
         validate: {
             notEmpty: true
         }
+    },
+    categoria: {
+        type: Sequelize.INTEGER,
+        allowNull: false
     }
   });
 

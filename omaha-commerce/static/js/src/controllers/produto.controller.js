@@ -8,6 +8,12 @@ function ProdutoController($scope, produtoService, $location) {
 
   var pc = this;
 
+  produtoService.listaCategorias().then(function(response) {
+    pc.categorias = response.data;
+  }).catch(function(response) {
+    console.log("Erro ao buscar categorias!");
+  });
+
   pc.produtos = produtos;
 
   pc.salvar = function() {
@@ -23,7 +29,7 @@ function ProdutoController($scope, produtoService, $location) {
     } else {
       produtoService.salvar(pc.produto).then(function(response) {
         pc.produto = response.data;
-        alert("Produto salva com sucesso!");
+        alert("Produto salvo com sucesso!");
       }).catch(function(response) {
         alert("Erro ao salvar produto!");
       });

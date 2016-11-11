@@ -1,8 +1,8 @@
 app.service('ProdutoService', ProdutoService);
 
-ProdutoService.$inject = ['$http'];
+ProdutoService.$inject = ['$http','CategoriaService'];
 
-function ProdutoService($http) {
+function ProdutoService($http, categoriaService) {
 
   var salvar = function(produto) {
     return $http.post('/produto/salvar',produto);
@@ -24,12 +24,17 @@ function ProdutoService($http) {
     return $http.get('/produto/consultarPorId/'+id)
   }
 
+  var listaCategorias = function() {
+    return categoriaService.consultarTodos();
+  }
+
   return {
       salvar: salvar,
       atualizar: atualizar,
       remover: remover,
       consultarTodos: consultarTodos,
-      consultarPorId: consultarPorId
-  }
+      consultarPorId: consultarPorId,
+      listaCategorias : listaCategorias
+    }
 
 };

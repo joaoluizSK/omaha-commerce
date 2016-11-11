@@ -64,8 +64,7 @@
 
                 <div class="col-md-5">
                     <select class="form-control" id="campoUf" ng-model="pc.produto.categoria">
-                    <option value="">Selecione</option>
-                    <option ng-repeat="categoriaAtual in pc.categorias">{{categoriaAtual}}</option>
+                    <option value="{{categoriaAtual.id}}" ng-repeat="categoriaAtual in pc.categorias">{{categoriaAtual.descricao}}</option>
                   </select>
                 </div>
 
